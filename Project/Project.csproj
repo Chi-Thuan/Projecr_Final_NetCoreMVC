@@ -145,6 +145,7 @@
     <Content Include="Style\default\188 Aranoz shop DOC\syntax-highlighter\styles\shThemeMidnight.css" />
     <Content Include="Style\default\188 Aranoz shop DOC\syntax-highlighter\styles\shThemeRDark.css" />
     <Content Include="Style\default\css\all.css" />
+    <Content Include="Style\default\css\custom.css" />
     <Content Include="Style\default\css\animate.css" />
     <Content Include="Style\default\css\aos.css" />
     <Content Include="Style\default\css\bootstrap.min.css" />
@@ -486,8 +487,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CreateController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -496,7 +500,9 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_layoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Create\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Style\default\188 Aranoz shop DOC\fonts\fontawesome-webfont.eot" />
@@ -565,7 +571,9 @@
     <Content Include="Style\default\webfonts\fa-solid-900.woff" />
     <Content Include="Style\default\webfonts\fa-solid-900.woff2" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\SingleProduct.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -576,10 +584,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Hello\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -6,12 +6,13 @@ using System.Web.Mvc;
 
 namespace Project.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class AdminController : Controller
     {
-        // GET: Admin/Home
+        // GET: Admin/Admin
         public ActionResult Index()
         {
             return View();
         }
+
     }
 }
