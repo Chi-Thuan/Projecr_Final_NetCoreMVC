@@ -70,7 +70,6 @@ C:\Users\canh2\Desktop\.NET\Project\Project\obj\Debug\Project.csproj.CoreCompile
 C:\Users\canh2\Desktop\.NET\Project\Project\obj\Debug\Project.csproj.CopyComplete
 C:\Users\canh2\Desktop\.NET\Project\Project\obj\Debug\Project.dll
 C:\Users\canh2\Desktop\.NET\Project\Project\obj\Debug\Project.pdb
-C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.csprojAssemblyReference.cache
 C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.dll
 C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.pdb
@@ -218,3 +217,4 @@ C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\bin\EntityFramework.
 C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\bin\EntityFramework.SqlServer.dll
 C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\bin\EntityFramework.xml
 C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\bin\EntityFramework.SqlServer.xml
+C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.csprojAssemblyReference.cache

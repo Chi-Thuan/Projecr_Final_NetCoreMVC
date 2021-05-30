@@ -91,3 +91,6 @@ GO
 
 
 select * from [dbo].[User]
+INSERT INTO [dbo].[User]
+VALUES (3,'Thuan'	,'admin1'	,'123','212-Linh Xuan','1283946@gmail.com','0231827292','2000-07-28 00:00:00.000');
+select * from [dbo].[User]
