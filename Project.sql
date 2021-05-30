@@ -81,7 +81,7 @@ CREATE TABLE [dbo].[User](
 	[Email] [nvarchar](50) NULL,
 	[Phone] [nvarchar](50) NULL,
 	[CreateDate] [datetime] NULL,
-	[Status] [bit] NULL,
+	
  CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -90,3 +90,4 @@ CREATE TABLE [dbo].[User](
 GO
 
 
+select * from [dbo].[User]

@@ -214,3 +214,7 @@ F:\MyFolder\Document\.NET\APP\Project\Project\obj\Debug\Project.csproj.CoreCompi
 F:\MyFolder\Document\.NET\APP\Project\Project\obj\Debug\Project.csproj.CopyComplete
 F:\MyFolder\Document\.NET\APP\Project\Project\obj\Debug\Project.dll
 F:\MyFolder\Document\.NET\APP\Project\Project\obj\Debug\Project.pdb
+C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\bin\EntityFramework.dll
+C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\bin\EntityFramework.SqlServer.dll
+C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\bin\EntityFramework.xml
+C:\Users\ASUS\Desktop\.NET\Projecr_Final_NetCoreMVC\Project\bin\EntityFramework.SqlServer.xml
