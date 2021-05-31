@@ -81,7 +81,7 @@ CREATE TABLE [dbo].[User](
 	[Email] [nvarchar](50) NULL,
 	[Phone] [nvarchar](50) NULL,
 	[CreateDate] [datetime] NULL,
-	[Status] [bit] NULL,
+	
  CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -90,3 +90,7 @@ CREATE TABLE [dbo].[User](
 GO
 
 
+select * from [dbo].[User]
+INSERT INTO [dbo].[User]
+VALUES (3,'Thuan'	,'admin1'	,'123','212-Linh Xuan','1283946@gmail.com','0231827292','2000-07-28 00:00:00.000');
+select * from [dbo].[User]

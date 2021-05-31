@@ -15,12 +15,11 @@ namespace Project.Areas.Admin
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-               
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", controller = "Home", id = UrlParameter.Optional },
-                  new[] { "Project.Areas.Admin.Controllers" }
-            ) ;
+                // defaul home
+                new { controller="admin", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }
