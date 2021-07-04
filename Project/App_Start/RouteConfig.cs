@@ -20,7 +20,14 @@ namespace Project
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 new[] { "Project.Controllers" }
             );
-         
+            routes.MapRoute(
+              name: "Cart",
+              url: "AddToCart",
+              defaults: new { controller = "Cart", action = "cart", id = UrlParameter.Optional},
+              new[] { "Project.Controllers" }
+          );
+
+
         }
 
         private static void RegisterRoutes()

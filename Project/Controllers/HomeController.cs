@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Project.Models;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,8 +14,11 @@ namespace Project.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
-        }
+           
+             return View();
+            }
+
+      
 
     }
 }

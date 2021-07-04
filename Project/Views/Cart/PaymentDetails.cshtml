@@ -1,0 +1,109 @@
+﻿@using Project.Models
+@{
+    ViewBag.Title = "PaymentDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluit product_list section_padding" style="margin-left:30%; width:500px ">
+    <div class="container-fluid list_prod">
+        <div class="row cart_prod_row">
+            <div class="container-fluit cart" s>
+                <div class="row title">
+                    <div class="col-md-12">
+                        <h3 style="text-align: center; margin-bottom:50px">
+                            Payment Details
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="container pro_num_cart well ">
+
+
+
+
+                    @foreach (ItemInCart item in (List<ItemInCart>)Session["cart"])
+                    {
+                        <div class="row">
+
+                            <div class="col-md-5">
+                                <p class="name-prod">@item.Product.name</p>
+
+
+                            </div>
+                            <div class="col-md-3">
+                                <p class="price-prod">@item.Product.price</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p>@item.Quantity</p>
+                            </div>
+
+
+
+
+                        </div>
+
+                        <br>
+                        <hr>
+                    }
+
+
+                    <div class="row border border-success border-right-0 border-bottom-0 border-left-0 "
+                         style="padding-top: 40px">
+                        <div class="col-md-5">
+                            <p class="amount">
+                                <b>Total:</b>
+
+                                @{
+                                    List<ItemInCart> cart = (List<ItemInCart>)Session["cart"];
+                                    var total = cart.Sum(item => item.Quantity);
+                                }
+                                @total
+                            </p>
+                        </div>
+                        <div class="col-md-5">
+
+                            <p class="total_price">
+                                <b>Cost:</b>
+
+                                @{
+
+                                    var cost = cart.Sum(item => item.Product.price * item.Quantity) ;
+                                }
+                                @cost $
+
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Address:</label>
+                            <input type="text" name="address" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Phone:</label>
+                            <input type="text" name="phone" />
+                        </div>
+
+                    </div>
+                    <div class="row" style="margin-top:30px">
+                        <div class="col-md-6">
+                            <p>Do you want to pay?</p>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <a class=" btn btn-success popup_checkout" href="/Cart/payment">Yes</a>
+                        </div>
+                        <div class="col-md-3">
+
+                            <a class=" btn btn-danger popup_checkout" href="/Home/Index">No</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

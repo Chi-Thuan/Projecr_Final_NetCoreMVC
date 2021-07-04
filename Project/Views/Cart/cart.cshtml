@@ -1,0 +1,137 @@
+﻿@using Project.Models
+@{
+    ViewBag.Title = "cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluit product_list section_padding" style="margin-left:20%; ">
+    <div class="container-fluid list_prod">
+        <div class="row cart_prod_row">
+            <div class="container-fluit cart" s>
+                <div class="row title">
+                    <div class="col-md-12">
+                        <h3 style="text-align: center; margin-bottom:50px" >
+                            Shopping cart
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="container pro_num_cart well ">
+
+
+
+                    <div class="row border border-success border-right-0 border-top-0 border-left-0  ">
+
+                        <div class="col-md-2">
+                            <p>
+                                <b></b>
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <p>
+                                <b>	Name</b>
+                            </p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>
+                                <b>	Price</b>
+                            </p>
+                        </div>
+
+                        <div class=col-md-2>
+                            <p>
+                                <b>Quantity</b>
+                            </p>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+
+
+                    @foreach (ItemInCart item in (List<ItemInCart>)Session["cart"])
+                    {
+                <div class="row">
+
+                    <div class="col-md-2">
+                     
+                            <div class="">
+                                <img src="https://localhost:44342/Style/default/img/images/@item.Product.slug@ViewData["jpg"]" alt="thumbnail" class="thumbnail" />
+                            </div>
+                     
+                        </div>
+                    <div class="col-md-3">
+                        <p class="name-prod">@item.Product.name</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="price-prod">@item.Product.price $</p>
+                    </div>
+
+                    <div class=col-md-2>
+                        <p>@item.Quantity</p>
+                    </div>
+                    <div class=col-md-1>
+
+                        <a class="btn btn-success" href="/Cart/cart?id=@item.Product.id&action=Increase&status=true">+</a>
+                    </div>
+                    <div class=col-md-1>
+
+                        <a class="btn btn-danger" href="/Cart/cart?id=@item.Product.id&action=Decrease&status=true">-</a>
+                    </div>
+                    <div class=col-md-1>
+
+                        <a class="btn btn-default" href="/Cart/cart?id=@item.Product.id&action=Remove&status=true"><i class="fas fa-trash"></i></a>
+                    </div>
+
+
+                </div>
+
+                        <br>
+                        <hr>
+                    }
+
+
+                    <div class="row border border-success border-right-0 border-bottom-0 border-left-0 "
+                         style="padding-top: 40px">
+                        <div class="col-md-2">
+                            <p class="amount">
+                                <b>Total:</b>
+
+                                @{
+                                    List<ItemInCart> cart = (List<ItemInCart>)Session["cart"];
+                                    var total = cart.Sum(item => item.Quantity);
+                                }
+                                @total
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+
+                            <p class="total_price">
+                                <b>Cost:</b>
+
+                                @{
+                                   
+                                    var cost = cart.Sum(item => item.Product.price * item.Quantity);
+                                }
+                                @cost
+
+                            </p>
+
+                        </div>
+                        <div class="col-md-5">
+
+
+                            <a class=" btn btn-success popup_checkout" href="/Cart/PaymentDetails">Buy</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+       

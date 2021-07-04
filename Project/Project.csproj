@@ -44,6 +44,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -3136,9 +3143,9 @@
     <Content Include="Style\default\img\b1.jpg" />
     <Content Include="Style\default\img\b2.jpg" />
     <Content Include="Style\default\img\b3.jpg" />
+    <Content Include="Style\default\img\banner_img.png" />
     <Content Include="Style\default\img\banner\banner-bg.jpg" />
     <Content Include="Style\default\img\banner_bg.png" />
-    <Content Include="Style\default\img\banner_img.png" />
     <Content Include="Style\default\img\blog\add.jpg" />
     <Content Include="Style\default\img\blog\author.png" />
     <Content Include="Style\default\img\blog\blog1.png" />
@@ -3237,6 +3244,10 @@
     <Content Include="Style\default\img\icon\right-arrow.svg" />
     <Content Include="Style\default\img\icon\right.svg" />
     <Content Include="Style\default\img\icon\star.svg" />
+    <Content Include="Style\default\img\images\dell-inspiron-3501.jpg" />
+    <Content Include="Style\default\img\images\dell-inspiron-5570.jpg" />
+    <Content Include="Style\default\img\images\dell-inspiron-7306.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-2021.jpg" />
     <Content Include="Style\default\img\instagram\i1.jpg" />
     <Content Include="Style\default\img\instagram\i2.jpg" />
     <Content Include="Style\default\img\instagram\i3.jpg" />
@@ -3419,6 +3430,7 @@
     <Content Include="Style\default\js\jquery.nice-select.min.js" />
     <Content Include="Style\default\js\jquery.validate.min.js" />
     <Content Include="Style\default\js\lightslider.min.js" />
+    <Content Include="Style\default\js\listProduct.js" />
     <Content Include="Style\default\js\mail-script.js" />
     <Content Include="Style\default\js\masonry.pkgd.js" />
     <Content Include="Style\default\js\masonry.pkgd.min.js" />
@@ -3448,12 +3460,15 @@
     <Compile Include="Areas\Admin\Controllers\ListCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\UpdateProductController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ItemInCart.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -4058,7 +4073,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Cart\cart.cshtml" />
+    <Content Include="Views\Cart\PaymentDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4070,7 +4086,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Public\upload\images\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
