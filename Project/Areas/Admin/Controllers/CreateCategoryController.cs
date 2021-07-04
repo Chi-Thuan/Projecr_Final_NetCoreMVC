@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,7 @@ namespace Project.Areas.Admin.Controllers
     public class CreateCategoryController : Controller
     {
         // GET: Admin/CreateCategory
+        [AuthenticationAdmin]
         public ActionResult Index()
         {
             return View();

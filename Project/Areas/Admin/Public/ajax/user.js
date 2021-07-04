@@ -8,12 +8,12 @@ function loadData() {
         contentType: "application/json",
         dataType: "json",
         success: function () {
-            debugger;
+           /// debugger;
         }, fail: function () {
-            debugger;
+           // debugger;
         }
     }).done(function (response) {
-        debugger;
+        // debugger;
         $('.data-user tbody').empty();
         $.each(response, function (index, item) {
             var trhtml = $(`<tr>
