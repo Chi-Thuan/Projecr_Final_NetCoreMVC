@@ -11,7 +11,7 @@ class listJS {
     loadData() {
         debugger
         $.ajax({
-            url: "https://localhost:44308/listProduct",
+            url: "https://localhost:44308/pages/1",
             method: "GET",
             data: "",
             contentType: "application/json",
@@ -24,7 +24,7 @@ class listJS {
               
                             <div class="col-lg-4 col-sm-4 col-md-4" id="detail_eachproduct">
                               <div style="margin:50px; 0px">
-                              <img src="/Style/default/img/images/`+item.slug+`.jpg">
+                              <img src="/Style/default/img/images/`+item.slug+`.jpg" width="180" height="150">
 
        
                                <p> Name:  <a href="https://localhost:44342/Product/Index/`+ item.id + `" class="productDetail">` + item.name +`</a> </p>

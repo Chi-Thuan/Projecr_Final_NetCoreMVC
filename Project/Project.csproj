@@ -3244,10 +3244,55 @@
     <Content Include="Style\default\img\icon\right-arrow.svg" />
     <Content Include="Style\default\img\icon\right.svg" />
     <Content Include="Style\default\img\icon\star.svg" />
+    <Content Include="Style\default\img\images\dell-g3.jpg" />
+    <Content Include="Style\default\img\images\dell-g3500.jpg" />
+    <Content Include="Style\default\img\images\Dell-Inspiron-14-5406.jpg" />
     <Content Include="Style\default\img\images\dell-inspiron-3501.jpg" />
+    <Content Include="Style\default\img\images\dell-inspiron-3580.jpg" />
+    <Content Include="Style\default\img\images\dell-inspiron-5447.jpg" />
+    <Content Include="Style\default\img\images\dell-inspiron-5502.jpg" />
     <Content Include="Style\default\img\images\dell-inspiron-5570.jpg" />
     <Content Include="Style\default\img\images\dell-inspiron-7306.jpg" />
+    <Content Include="Style\default\img\images\dell-inspiron-n3501.jpg" />
+    <Content Include="Style\default\img\images\dell-inspiron-n3593.jpg" />
+    <Content Include="Style\default\img\images\dell-inspiron-n7490.jpg" />
+    <Content Include="Style\default\img\images\dell-latitude-3520.jpg" />
+    <Content Include="Style\default\img\images\dell-latitude-7490.jpg" />
+    <Content Include="Style\default\img\images\dell-precision-5750.jpg" />
+    <Content Include="Style\default\img\images\dell-vostro-5402.jpg" />
+    <Content Include="Style\default\img\images\dell-vostro-v5402.png" />
+    <Content Include="Style\default\img\images\dell-vostro-v5502.jpg" />
+    <Content Include="Style\default\img\images\dell-xps-13.jpg" />
+    <Content Include="Style\default\img\images\dell-xps-15.jpg" />
+    <Content Include="Style\default\img\images\dell-xps-9300.jpg" />
+    <Content Include="Style\default\img\images\dell-xps-9700.jpg" />
+    <Content Include="Style\default\img\images\lenovo-ideapad-3.jpg" />
+    <Content Include="Style\default\img\images\lenovo-ideapad-5.jpg" />
+    <Content Include="Style\default\img\images\lenovo-legion.jpg" />
+    <Content Include="Style\default\img\images\lenovo-thinkpad-x1-carbon.jpg" />
+    <Content Include="Style\default\img\images\Lenovo-ThinkPad-X1-Nano.jpg" />
+    <Content Include="Style\default\img\images\lenovo-yoga-c740.jpg" />
+    <Content Include="Style\default\img\images\lenovo-yoga-duet-7-13iml05-i7.jpg" />
+    <Content Include="Style\default\img\images\lenovo-yoga.jpg" />
+    <Content Include="Style\default\img\images\lenovoyoga-c940.png" />
+    <Content Include="Style\default\img\images\lenovo_thinkpad_x13_gen_1.jpg" />
+    <Content Include="Style\default\img\images\Macbook-air-2013.jpg" />
+    <Content Include="Style\default\img\images\macbook-air-2017.jpg" />
+    <Content Include="Style\default\img\images\macbook-air-2018.jpg" />
+    <Content Include="Style\default\img\images\macbook-air-2019.jpg" />
+    <Content Include="Style\default\img\images\macbook-air-2020.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-13-2017.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-13.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-13in-m1.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-2013.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-2014.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-2015.jpg" />
+    <Content Include="Style\default\img\images\MacBook-Pro-2016.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-2018.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-2019.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-2020.jpeg" />
     <Content Include="Style\default\img\images\macbook-pro-2021.jpg" />
+    <Content Include="Style\default\img\images\macbook-pro-m1.jpg" />
     <Content Include="Style\default\img\instagram\i1.jpg" />
     <Content Include="Style\default\img\instagram\i2.jpg" />
     <Content Include="Style\default\img\instagram\i3.jpg" />
@@ -3467,6 +3512,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ItemInCart.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -4075,6 +4121,8 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Cart\cart.cshtml" />
     <Content Include="Views\Cart\PaymentDetails.cshtml" />
+    <Content Include="Views\Product\Category.cshtml" />
+    <Content Include="Views\Home\Page.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

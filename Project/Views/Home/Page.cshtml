@@ -1,0 +1,167 @@
+﻿@using Project.Models;
+@model IEnumerable<Project.Models.Product>
+
+
+@{
+    ViewBag.Title = "Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+
+<!-- banner part start-->
+<section class="banner_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="banner_slider owl-carousel">
+                    <div class="single_banner_slider">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-8">
+                                <div class="banner_text">
+                                    <div class="banner_text_iner">
+                                        <h1>
+                                            Dell
+                                        </h1>
+                                        <p>
+                                            Incididunt ut labore et dolore magna aliqua quis ipsum
+                                            suspendisse ultrices gravida. Risus commodo viverra
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner_img d-none d-lg-block">
+                                <img src="~/Style/default//img/banner_img.png" alt="" width="2000" height="300">
+                            </div>
+                        </div>
+                    </div><div class="single_banner_slider">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-8">
+                                <div class="banner_text">
+                                    <div class="banner_text_iner">
+                                        <h1>
+                                            Dell
+                                        </h1>
+                                        <p>
+                                            Incididunt ut labore et dolore magna aliqua quis ipsum
+                                            suspendisse ultrices gravida. Risus commodo viverra
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner_img d-none d-lg-block">
+                                <img src="~/Style/default//img/banner_img.png" alt="" width="2000" height="300">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_banner_slider">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-8">
+                                <div class="banner_text">
+                                    <div class="banner_text_iner">
+                                        <h1>
+                                            Dell
+                                        </h1>
+                                        <p>
+                                            Incididunt ut labore et dolore magna aliqua quis ipsum
+                                            suspendisse ultrices gravida. Risus commodo viverra
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner_img d-none d-lg-block">
+                                <img src="~/Style/default//img/banner_img.png" alt="" width="2000" height="300">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_banner_slider">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-8">
+                                <div class="banner_text">
+                                    <div class="banner_text_iner">
+                                        <h1>Dell</h1>
+                                        <p>
+                                            Incididunt ut labore et dolore magna aliqua quis ipsum
+                                            suspendisse ultrices gravida. Risus commodo viverra
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="banner_img d-none d-lg-block">
+                                <img src="~/Style/default//img/banner_img.png" alt="" width="2000" height="300">
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="slider-counter"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner part start-->
+<!-- feature_part start-->
+<!-- upcoming_event part start-->
+<!-- product_list start-->
+<section class="product_list section_padding">
+
+    <div class="container list_prod">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section_tittle text-center">
+                    <h2>Shopping Now</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (Product item in Model)
+            {
+
+                <div class="col-lg-4 col-sm-4 col-md-4" id="detail_eachproduct">
+                    <div style="margin:50px 0px">
+                        <img src="/Style/default/img/images/@item.slug@ViewData["jpg"]" width="180" height="150">
+
+
+                        <p> Name:  <a href="https://localhost:44342/Product/Index/@item.id" class="productDetail">  @item.name </a> </p>
+                        <p>Price:  @item.price </p>
+
+                        <a href="https://localhost:44342/Cart/cart?status=true&id=@item.id" class="add_cart">Add to cart</a>
+                    </div>
+
+                </div>
+            }
+        </div>
+
+
+        <div class="row align-items-center latest_product_inner" style="margin-left: 40%">
+
+            @{
+                var index = ViewData["pageIndex"];
+                int pageIndex = (int)index;
+                for (int i = 1; i <= pageIndex; i++)
+                {
+
+                    <div class="pageination">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+
+                                <li class="page-item"><a class="page-link" href="/Home/Page?page=@i">@i</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+
+                }
+
+            }
+        </div>
+</section>
+
+
+<!-- product_list part start-->
+<!-- awesome_shop start-->
