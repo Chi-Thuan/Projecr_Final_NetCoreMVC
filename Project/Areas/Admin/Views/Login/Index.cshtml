@@ -23,28 +23,28 @@
                         <div class="text-center text-muted mb-4">
                             <h3>ĐĂNG NHẬP</h3>
                         </div>
-                        <form method="POST" action="#">
-                            <div class="form-group mb-3">
-                                <div class="input-group input-group-merge input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                        <form method="POST" id="loginAdmin" action="https://localhost:44308/login">
+                                <div class="form-group mb-3">
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                        </div>
+                                        <input class="form-control" name="email" placeholder="Nhập Email" type="email" required>
                                     </div>
-                                    <input class="form-control" name="username" placeholder="Username" type="text" required>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group input-group-merge input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                <div class="form-group">
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                        </div>
+                                        <input class="form-control" name="password" placeholder="Nhập mật khẩu" type="password" required>
                                     </div>
-                                    <input class="form-control" name="password" placeholder="Password" type="password" required>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <input type="submit" class="btn btn-primary my-4" value="Đăng nhập" />
-                            </div>
-                        </form>
-                    </div>
+                                <div class="text-center">
+                                    <input type="submit" id="submitFormLogin" class="btn btn-primary my-4" value="Đăng nhập" />
+                                </div>
+                            </form>
+</div>
                 </div>
             </div>
         </div>
