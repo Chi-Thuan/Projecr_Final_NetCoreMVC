@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,6 +10,7 @@
     <meta name="author" content="Creative Tim">
     @** @ViewBag.Title *@
     <title>Admin Nhóm 6</title>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <!-- Favicon -->
     <link rel="icon" href="~/Areas/Admin/Public/assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -23,6 +26,8 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Custom Css -->
     <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/custom.css" type="text/css">
+    <script src="~/Areas/Admin/Public/ajax/Product.js"></script>
+    <script src="~/Areas/Admin/Public/ajax/user.js"></script>
 </head>
 
 
@@ -42,19 +47,20 @@
                     <!-- Nav items -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin">
+                            <a class="nav-link" href="/admin/home">
+                                <i class="ni ni-tv-2 text-primary"></i>
+                                <span class="nav-link-text">QUẢN LÝ USER</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            @*/admin/product/listproduct*@
+                            <a class="nav-link" href="#" onclick="transToPageListProduct(1)">
                                 <i class="ni ni-tv-2 text-primary"></i>
                                 <span class="nav-link-text">QUẢN LÝ SẢN PHẨM</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/listcategory">
-                                <i class="ni ni-tv-2 text-primary"></i>
-                                <span class="nav-link-text">QUẢN LÝ DANH MỤC</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/createproduct">
+                            <a class="nav-link" href="#" onclick="addProductContent()">
                                 <i class="ni ni-tv-2 text-primary"></i>
                                 <span class="nav-link-text">THÊM SẢN PHẨM</span>
                             </a>
@@ -66,7 +72,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/createsubcategory">
+                            <a class="nav-link" href="#" onclick="addProductContent()">
                                 <i class="ni ni-tv-2 text-primary"></i>
                                 <span class="nav-link-text">THÊM DANH MỤC CON</span>
                             </a>
@@ -78,7 +84,7 @@
     </nav>
     <!-- Main content -->
     @RenderBody()
-</body>
+
 <!-- Argon Scripts -->
 <!-- Optional: i    nclude a polyfill for ES6 Promises for IE11 -->
 <!-- Core -->
@@ -95,8 +101,7 @@
 
 <!-- <script src="/js/create-update.js"></script> -->
 <script src="/ckeditor/ckeditor.js"></script>
-
 <script src="~/Areas/Admin/Public/assets/js/customJS.js"></script>
-<script src="~/Areas/Admin/Public/ajax/user.js"></script>
+
   </body>
 </html>
