@@ -9,9 +9,9 @@ namespace Project.Areas.Admin.Controllers
     public class UpdateProductController : Controller
     {
         // GET: Admin/UpdateProduct
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            return View();
+            return View(id);
         }
     }
 }

@@ -16,10 +16,14 @@ namespace Project.Areas.Admin
         {
             context.MapRoute(
                 "Admin_default",
-                "Admin/{controller}/{action}/{id}",
+                "admin/{controller}/{action}/{id}",
                 // defaul home
-                new { controller="admin", action = "Index", id = UrlParameter.Optional }
+                new { controller="home", action = "Index", id = UrlParameter.Optional },
+                new[] { "Project.Areas.Admin.Controllers" }
             );
+         
+
+
         }
     }
 }
