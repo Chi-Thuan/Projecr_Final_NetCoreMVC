@@ -18,7 +18,8 @@ namespace Project.Areas.Admin
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
                 // defaul home
-                new { controller="admin", action = "Index", id = UrlParameter.Optional }
+                new { controller="admin", action = "Index", id = UrlParameter.Optional },
+                new[] { "Project.Areas.Admin.Controllers" }
             );
         }
     }
