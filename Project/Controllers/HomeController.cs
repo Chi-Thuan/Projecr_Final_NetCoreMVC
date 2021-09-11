@@ -68,11 +68,13 @@ namespace Project.Controllers
             List<Product> list = JsonConvert.DeserializeObject<List<Product>>(rawResponse);
 
 
-            int pageIndex = list.Count() / 9;
-            if(list.Count()%9 != 0)
-            {
-                pageIndex = pageIndex + 1;
-            }
+            int pageIndex = 1;
+
+            // int pageIndex = list.Count() / 9;
+            //if (list.Count()%9 != 0)
+            // {
+            //     pageIndex = pageIndex + 1;
+            // }
 
             return pageIndex;
         }

@@ -1,23 +1,23 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
 
     const contentEditor = document.querySelector('#content-editor')
 
-    
-	let editor = null
-	if (contentEditor) {
-		editor = CKEDITOR.replace('content-editor', {
-			entities: false,
-			allowedContent: true,
-			entities_additional: '',
-			entities_greek: false,
-			entities_latin: false,
-		})
-	}
+
+    let editor = null
+    if (contentEditor) {
+        editor = CKEDITOR.replace('content-editor', {
+            entities: false,
+            allowedContent: true,
+            entities_additional: '',
+            entities_greek: false,
+            entities_latin: false,
+        })
+    }
 
     const convertToSlug = (str) => {
         str = str.replace(/^\s+|\s+$/g, ''); // trim
         str = str.toLowerCase();
-    
+
         // remove accents, swap ñ for n, etc
         var from = 'àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ·/_,:;';
         var to = 'aaaaaaaaaaaaaaaaaeeeeeeeeeeeiiiiiooooooooooooooooouuuuuuuuuuuyyyyyd------';
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function(){
         str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
             .replace(/\s+/g, '-') // collapse whitespace and replace by -
             .replace(/-+/g, '-'); // collapse dashes
-    
+
         return str;
     }
 
@@ -35,24 +35,24 @@ document.addEventListener('DOMContentLoaded', function(){
      * PAGE CATEGORY
      */
     let page_category = document.querySelector('.page_create_category')
-    if(page_category) {
+    if (page_category) {
 
         // PREVIEW IMAGES
         let btn_thumbnail_category = document.querySelector('#add_img')
         let imgThumbnailTemp = document.querySelector('label.add_thumbnail img')
-        function handleChooseImage (event) {
+        function handleChooseImage(event) {
             imgThumbnailTemp.setAttribute('src', URL.createObjectURL(event.target.files[0]))
-            imgThumbnailTemp.onload = function() {
+            imgThumbnailTemp.onload = function () {
                 URL.revokeObjectURL(imgThumbnailTemp.src)
             }
         }
-        btn_thumbnail_category.addEventListener('change',handleChooseImage )
+        btn_thumbnail_category.addEventListener('change', handleChooseImage)
 
         //RESET IMAGES
         let btn_reset = page_category.querySelector('#btn_resetForm')
 
-        function handleResetFrom () {
-            imgThumbnailTemp.setAttribute('src','assets/img/uploads/no_image.jpg')
+        function handleResetFrom() {
+            imgThumbnailTemp.setAttribute('src', 'assets/img/uploads/no_image.jpg')
         }
 
         btn_reset.addEventListener('click', handleResetFrom)
@@ -62,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function(){
         let inputName = page_category.querySelector('#txt_name')
         let inputSlug = page_category.querySelector('#txt_slug')
 
-        function handleTxtName (){
+        function handleTxtName() {
             inputSlug.value = convertToSlug(this.value)
         }
-        function handleTxtSlug (){
+        function handleTxtSlug() {
             this.value = convertToSlug(this.value)
         }
 
@@ -77,28 +77,28 @@ document.addEventListener('DOMContentLoaded', function(){
 
         function handlingSubmit(e) {
             e.preventDefault()
-            const fd = new FormData(this)            
+            const fd = new FormData(this)
 
             let xhr = new XMLHttpRequest()
             xhr.onreadystatechange = () => {
-                if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200 ) {
+                if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                     const data = JSON.parse(xhr.responseText).data
-                    if(data) {
+                    if (data) {
                         console.log(JSON.parse(xhr.responseText))
                         Swal.fire({
                             icon: 'success',
                             title: 'Thêm thành công',
                         })
-                    }else{
+                    } else {
 
                         const isExist = JSON.parse(xhr.responseText).isExist
-                        if(isExist) {
+                        if (isExist) {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Đã tồn tại!',
                                 text: 'Vui lòng nhập thông tin mới!',
                             })
-                        }else{
+                        } else {
                             console.log(JSON.parse(xhr.responseText))
                             Swal.fire({
                                 icon: 'error',
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 text: 'Vui lòng điền đầy đủ thông tin!',
                             })
                         }
-                        
+
                     }
                 }
             }
@@ -115,31 +115,31 @@ document.addEventListener('DOMContentLoaded', function(){
             xhr.send(fd)
         }
 
-        formArr.addEventListener('submit', handlingSubmit )
+        formArr.addEventListener('submit', handlingSubmit)
     }
 
     /**
      * PAGE SUB CATEGORY
      */
-     let page_subCategory = document.querySelector('.page_create_Subcategory')
-     if(page_subCategory) {
+    let page_subCategory = document.querySelector('.page_create_Subcategory')
+    if (page_subCategory) {
 
         // PREVIEW IMAGES
         let btn_thumbnail_category = document.querySelector('#add_img')
         let imgThumbnailTemp = document.querySelector('label.add_thumbnail img')
-        function handleChooseImage (event) {
+        function handleChooseImage(event) {
             imgThumbnailTemp.setAttribute('src', URL.createObjectURL(event.target.files[0]))
-            imgThumbnailTemp.onload = function() {
+            imgThumbnailTemp.onload = function () {
                 URL.revokeObjectURL(imgThumbnailTemp.src)
             }
         }
-        btn_thumbnail_category.addEventListener('change',handleChooseImage )
+        btn_thumbnail_category.addEventListener('change', handleChooseImage)
 
         //RESET IMAGES
         let btn_reset = page_subCategory.querySelector('#btn_resetForm')
 
-        function handleResetFrom () {
-            imgThumbnailTemp.setAttribute('src','assets/img/uploads/no_image.jpg')
+        function handleResetFrom() {
+            imgThumbnailTemp.setAttribute('src', 'assets/img/uploads/no_image.jpg')
         }
 
         btn_reset.addEventListener('click', handleResetFrom)
@@ -149,10 +149,10 @@ document.addEventListener('DOMContentLoaded', function(){
         let inputName = page_subCategory.querySelector('#txt_name')
         let inputSlug = page_subCategory.querySelector('#txt_slug')
 
-        function handleTxtName (){
+        function handleTxtName() {
             inputSlug.value = convertToSlug(this.value)
         }
-        function handleTxtSlug (){
+        function handleTxtSlug() {
             this.value = convertToSlug(this.value)
         }
 
@@ -164,27 +164,27 @@ document.addEventListener('DOMContentLoaded', function(){
 
         function handlingSubmit(e) {
             e.preventDefault()
-            const fd = new FormData(this)            
+            const fd = new FormData(this)
 
             let xhr = new XMLHttpRequest()
             xhr.onreadystatechange = () => {
-                if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200 ) {
+                if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                     const data = JSON.parse(xhr.responseText).data
-                    if(data) {
+                    if (data) {
                         console.log(JSON.parse(xhr.responseText))
                         Swal.fire({
                             icon: 'success',
                             title: 'Thêm thành công',
                         })
-                    }else{
+                    } else {
                         const isExist = JSON.parse(xhr.responseText).isExist
-                        if(isExist) {
+                        if (isExist) {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Đã tồn tại!',
                                 text: 'Vui lòng nhập thông tin mới!',
                             })
-                        }else{
+                        } else {
                             console.log(JSON.parse(xhr.responseText))
                             Swal.fire({
                                 icon: 'error',
@@ -200,15 +200,15 @@ document.addEventListener('DOMContentLoaded', function(){
             xhr.send(fd)
         }
 
-        formArr.addEventListener('submit', handlingSubmit )
+        formArr.addEventListener('submit', handlingSubmit)
     }
 
     /**
      * PAGE LIST CATEGORY
      */
     let page_listCategory = document.querySelector('.list_category')
-    if(page_listCategory) {
-        let listBtnRemoveCategory = page_listCategory.querySelectorAll('.btn_remove_category') 
+    if (page_listCategory) {
+        let listBtnRemoveCategory = page_listCategory.querySelectorAll('.btn_remove_category')
 
         function handleRemoveCategory(e) {
             e.preventDefault()
@@ -223,25 +223,25 @@ document.addEventListener('DOMContentLoaded', function(){
                 cancelButtonColor: '#d33',
                 cancelButtonText: 'Hủy bỏ',
                 confirmButtonText: 'Đồng ý xóa'
-              }).then((result) => {
-                
-                if (result.isConfirmed) { 
+            }).then((result) => {
+
+                if (result.isConfirmed) {
                     const xhr = new XMLHttpRequest()
                     xhr.onreadystatechange = function () {
-                        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                             const data = JSON.parse(xhr.responseText).data
-                            if(data) {
+                            if (data) {
                                 Swal.fire({
                                     title: 'Xóa thành công',
                                     icon: 'success',
                                     showConfirmButton: true,
                                     confirmButtonText: 'OK'
                                 })
-                                
+
                                 setTimeout(() => {
                                     window.location.reload()
                                 }, 1200);
-                            }else{
+                            } else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Xóa thất bại',
@@ -250,13 +250,13 @@ document.addEventListener('DOMContentLoaded', function(){
                             }
                         }
                     }
-                    xhr.open('POST', `/api/admin/remove-category/${ _id }` )
+                    xhr.open('POST', `/api/admin/remove-category/${_id}`)
                     xhr.send()
                 }
-              })
+            })
         }
 
-        listBtnRemoveCategory.forEach( btn => {
+        listBtnRemoveCategory.forEach(btn => {
             btn.addEventListener('click', handleRemoveCategory)
         })
 
@@ -266,23 +266,23 @@ document.addEventListener('DOMContentLoaded', function(){
      * PAGE CREATE PRODUCT
      */
     let page_createProduct = document.querySelector('.create_product')
-    if(page_createProduct) {
+    if (page_createProduct) {
         // PREVIEW IMAGES
         let btn_thumbnail_category = page_createProduct.querySelector('#add_img')
         let imgThumbnailTemp = page_createProduct.querySelector('label.add_thumbnail img')
-        function handleChooseImage (event) {
+        function handleChooseImage(event) {
             imgThumbnailTemp.setAttribute('src', URL.createObjectURL(event.target.files[0]))
-            imgThumbnailTemp.onload = function() {
+            imgThumbnailTemp.onload = function () {
                 URL.revokeObjectURL(imgThumbnailTemp.src)
             }
         }
-        btn_thumbnail_category.addEventListener('change',handleChooseImage )
+        btn_thumbnail_category.addEventListener('change', handleChooseImage)
 
         //RESET IMAGES
         let btn_reset = page_createProduct.querySelector('#btn_resetForm')
 
-        function handleResetFrom () {
-            imgThumbnailTemp.setAttribute('src','assets/img/uploads/no_image.jpg')
+        function handleResetFrom() {
+            imgThumbnailTemp.setAttribute('src', 'assets/img/uploads/no_image.jpg')
         }
 
         btn_reset.addEventListener('click', handleResetFrom)
@@ -292,10 +292,10 @@ document.addEventListener('DOMContentLoaded', function(){
         let inputName = page_createProduct.querySelector('#txt_name')
         let inputSlug = page_createProduct.querySelector('#txt_slug')
 
-        function handleTxtName (){
+        function handleTxtName() {
             inputSlug.value = convertToSlug(this.value)
         }
-        function handleTxtSlug (){
+        function handleTxtSlug() {
             this.value = convertToSlug(this.value)
         }
 
@@ -306,11 +306,11 @@ document.addEventListener('DOMContentLoaded', function(){
         let chooseParentCategory = page_createProduct.querySelector('#parentCategory')
         let subCategory = page_createProduct.querySelector('#subCategory')
 
-        function handleChangeCategory () {
+        function handleChangeCategory() {
             const _id = this.value
             const xhr = new XMLHttpRequest()
-            xhr.onreadystatechange = function() {
-                if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                     const { data } = JSON.parse(xhr.responseText)
                     subCategory.innerHTML = `<option value="0">Khác</option>`
                     data.forEach(item => {
@@ -329,21 +329,21 @@ document.addEventListener('DOMContentLoaded', function(){
 
         function handlingSubmit(e) {
             e.preventDefault()
-            const fd = new FormData(this)      
+            const fd = new FormData(this)
             if (this.querySelector('#content-editor')) {
                 fd.set('description', editor.getData()/* .replace(/(\<div.+?\>|\<\/div\>)/g, '') */)
-            }      
+            }
             let xhr = new XMLHttpRequest()
             xhr.onreadystatechange = () => {
-                if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200 ) {
+                if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                     const { data, message } = JSON.parse(xhr.responseText)
-                    if(data) {
+                    if (data) {
                         console.log(JSON.parse(xhr.responseText))
                         Swal.fire({
                             icon: 'success',
                             title: message,
                         })
-                    }else{
+                    } else {
                         const typeError = JSON.parse(xhr.responseText).type
 
                         switch (typeError) {
@@ -381,12 +381,12 @@ document.addEventListener('DOMContentLoaded', function(){
             xhr.send(fd)
         }
 
-        formArr.addEventListener('submit', handlingSubmit )
+        formArr.addEventListener('submit', handlingSubmit)
     }
 
     let page_dashboard = document.querySelector('.dashboard')
-    if(page_dashboard){
-        let listBtnRemoveItem = page_dashboard.querySelectorAll('.btn_remove_item') 
+    if (page_dashboard) {
+        let listBtnRemoveItem = page_dashboard.querySelectorAll('.btn_remove_item')
 
         function handleRemoveCategory(e) {
             e.preventDefault()
@@ -401,25 +401,25 @@ document.addEventListener('DOMContentLoaded', function(){
                 cancelButtonColor: '#d33',
                 cancelButtonText: 'Hủy bỏ',
                 confirmButtonText: 'Đồng ý xóa'
-              }).then((result) => {
-                
-                if (result.isConfirmed) { 
+            }).then((result) => {
+
+                if (result.isConfirmed) {
                     const xhr = new XMLHttpRequest()
                     xhr.onreadystatechange = function () {
-                        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                             const data = JSON.parse(xhr.responseText).data
-                            if(data) {
+                            if (data) {
                                 Swal.fire({
                                     title: 'Xóa thành công',
                                     icon: 'success',
                                     showConfirmButton: true,
                                     confirmButtonText: 'OK'
                                 })
-                                
+
                                 setTimeout(() => {
                                     window.location.reload()
                                 }, 1200);
-                            }else{
+                            } else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Xóa thất bại',
@@ -428,13 +428,13 @@ document.addEventListener('DOMContentLoaded', function(){
                             }
                         }
                     }
-                    xhr.open('POST', `/api/admin/remove-product/${ _id }` )
+                    xhr.open('POST', `/api/admin/remove-product/${_id}`)
                     xhr.send()
                 }
-              })
+            })
         }
 
-        listBtnRemoveItem.forEach( btn => {
+        listBtnRemoveItem.forEach(btn => {
             btn.addEventListener('click', handleRemoveCategory)
         })
 

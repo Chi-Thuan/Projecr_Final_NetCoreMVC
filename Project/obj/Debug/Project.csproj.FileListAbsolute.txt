@@ -454,3 +454,11 @@ G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.csproj.Co
 G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.csproj.CopyComplete
 G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.dll
 G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.pdb
+G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\bin\Microsoft.IdentityModel.Logging.dll
+G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\bin\Microsoft.IdentityModel.Tokens.dll
+G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\bin\System.IdentityModel.Tokens.Jwt.dll
+G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\bin\Microsoft.IdentityModel.Logging.xml
+G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\bin\Microsoft.IdentityModel.Tokens.xml
+G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\bin\System.IdentityModel.Tokens.Jwt.xml
