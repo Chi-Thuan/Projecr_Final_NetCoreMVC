@@ -224,7 +224,7 @@
     <Content Include="Areas\Admin\Public\assets\js\components\vendor\nouislider.min.js" />
     <Content Include="Areas\Admin\Public\assets\js\components\vendor\scrollbar.js" />
     <Content Include="Areas\Admin\Public\assets\js\components\vendor\scrollbar.min.js" />
-    <Content Include="Areas\Admin\Public\assets\js\customJS.js" />
+    <Content Include="Areas\Admin\Public\ajax\customJS.js" />
     <Content Include="Areas\Admin\Public\assets\vendor\%40fortawesome\fontawesome-free\css\all.min.css" />
     <Content Include="Areas\Admin\Public\assets\vendor\%40fortawesome\fontawesome-free\css\brands.min.css" />
     <Content Include="Areas\Admin\Public\assets\vendor\%40fortawesome\fontawesome-free\css\fontawesome.min.css" />
@@ -3124,6 +3124,10 @@
     <Content Include="Areas\Admin\Public\ckeditor\vendor\promise.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Areas\Admin\Views\Admin\UpdateUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\CreateProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ListProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\UpdateProduct.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -3537,6 +3541,8 @@
     <Content Include="Style\default\img\product\single-product\s-product-s-3.jpg" />
     <Content Include="Style\default\img\product\single-product\s-product-s-4.jpg" />
     <Content Include="Style\default\img\subscribe_area.png" />
+    <Content Include="Style\default\js\main.js" />
+    <Content Include="Style\default\js\ajax.js" />
     <Content Include="Style\default\js\aos.js" />
     <Content Include="Style\default\js\bootstrap.min.js" />
     <Content Include="Style\default\js\contact.js" />
@@ -3583,6 +3589,10 @@
     <Compile Include="Areas\Admin\Controllers\ListCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\UpdateProductController.cs" />
+    <Compile Include="Areas\Admin\Model\User.cs" />
+    <Compile Include="Areas\Admin\Model\ProductInfor.cs" />
+    <Compile Include="Areas\Admin\Model\Product.cs" />
+    <Compile Include="Areas\Admin\Model\Category.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

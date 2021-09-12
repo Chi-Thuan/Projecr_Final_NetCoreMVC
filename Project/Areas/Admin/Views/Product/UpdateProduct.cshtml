@@ -1,0 +1,111 @@
+﻿@model Project.Areas.Admin.Model.ProductInfor
+@{ var product = ViewBag.product; }
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Cập nhật sản phẩm</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <form class="form-content" action="#" method="POST">
+                        <div class="pl-lg-4">
+                            <div class="row">
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-username">ID</label>
+                                        <input type="text" value="@product.id" disabled="disabled" id="txt_id" name="name" class="form-control name-Product" placeholder="" style="color: black;" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-username">Tên Sản Phẩm</label>
+                                        <input type="text" value="@product.name" id="txt_name" name="name" class="form-control name-Product" placeholder="Nhập Tên Sản Phẩm" style="color: black;" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <p class="form-control-label">Ảnh đại diện</p>
+                                        <div class="row d-flex justify-content-center">
+                                            <label class="add_thumbnail" for="add_img">
+                                                <img class="source_img" id="previewImage" src="@product.thumbnail" alt="">
+                                            </label>
+                                        </div>
+                                        <input type="file" hidden id="add_img" multiple name="ImageUpLoad" accept=".png, .jpg, .jpeg" onchange="ShowImagePreview(this, document.getElementById('previewImage'))">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-username">Giá</label>
+                                        <div class="input-group">
+                                            <input type="number" min="10000" name="price" id="input-price" value="@product.price" class="form-control" placeholder="Nhập giá" required>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend2">VNĐ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-username">Danh mục</label>
+                                        @Html.DropDownListFor(model => model.category, ViewBag.list as SelectList, "--Chọn loại sản phẩm--", new { @class = "form-control list-category", })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-username">Số lượng</label>
+                                        <div class="input-group">
+                                            <input type="number" min="1" id="input-quantity" name="quantity" value="@product.quantity" class="form-control" placeholder="Nhập số lượng sản phẩm" required>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend2">Số lượng</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-create">Ngày tạo</label>
+                                        <input type="datefield" value="@product.createAt" disabled="disabled" id="txt_createdate" name="date" class="form-control name-Product" placeholder="" style="color: black;">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-createAt">Ngày chỉnh sửa</label>
+                                        <input type="datefield" value="@product.modifyAt" disabled="disabled" id="txt_modifierDate" name="date-modifier" class="form-control name-Product" placeholder="" style="color: black;">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Mô tả sản phẩm</label>
+                                        <textarea rows="4" class="form-control" name="description" id="content-description" required placeholder="Mô tả chi tiết sản phẩm">@product.description</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12  d-flex justify-content-end">
+                                    <input type="button" id="btn_submitForm" value="Cập nhật" class="btn btn-primary mt-4 px-5" onclick="updateProductAPI()" />
+                                    <input type="reset" id="btn_resetForm" value="Hủy" class="btn btn-danger mt-4 mr-3 px-5" onclick="transToPageListProduct(1)" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

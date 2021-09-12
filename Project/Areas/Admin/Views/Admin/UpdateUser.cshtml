@@ -1,6 +1,8 @@
 ﻿
-@{ ViewBag.Title = "Index";
-                Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml"; }
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
 
 <div class="main-content dashboard" id="panel">
     <!-- Topnav -->
@@ -183,7 +185,7 @@
                                 <span>Support</span>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a href="/admin/login" class="dropdown-item">
+                            <a href="/admin/logout" class="dropdown-item">
                                 <i class="ni ni-user-run"></i>
                                 <span>Logout</span>
                             </a>
@@ -282,48 +284,65 @@
         </div>
     </div>
     <!-- Page content -->
-    <div id="content-admin">
-        <div class="container-fluid mt--6">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-header border-0">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h3 class="mb-0">Thông tin User</h3>
-                                </div>
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Thông tin sản phẩm</h3>
                             </div>
                         </div>
-                        <div class="data-user table-responsive">
-                            <!-- Projects table -->
-                            <table id="user-list" class="table align-items-center table-flush">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col" style="text-align: center;">Họ và tên</th>
-                                        <th scope="col" style="text-align: center;">Email</th>
-                                        <th scope="col" style="text-align: center;">Ngày tạo</th>
-                                        <th scope="col" style="text-align: center;">Ngày chỉnh sửa</th>
-                                        <th scope="col" style="text-align: center;"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <!-- Projects table -->
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col" style="text-align: center;">Ảnh sản phẩm</th>
+                                    <th scope="col" style="text-align: center;">Tên sản phẩm</th>
+                                    <th scope="col" style="text-align: center;">Danh mục</th>
+                                    <th scope="col" style="text-align: center;">Giá sản phẩm</th>
+                                    <th scope="col" style="text-align: center;">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <th scope="row" style="justify-content: center; display: flex;">
+                                        <img style="height: 50px; width: auto;" src="#">
+                                    </th>
+                                    <td style="text-align: center;">
+                                        Tên sản phẩm
+                                    </td>
+                                    <td style="text-align: center;">
+                                        Danh mục
+                                    </td>
+                                    <td style="text-align: center;">
+                                        Giá sản phẩm
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <a href="#" class="btn btn-danger btn_remove_item" data-id="#"><i class="ni ni-basket"></i></a>
+                                        <a href="/admin/updateProduct" class="btn btn-primary"><i class="ni ni-ruler-pencil"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                 </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer pt-0">
+            <div class="row align-items-center justify-content-lg-between">
+                <div class="col-lg-6">
+                    <div class="copyright text-center  text-lg-left  text-muted">
+                        &copy; 2021 <a href="#" class="font-weight-bold ml-1">Phát triển bởi Nhóm 6 - Lập trình .NET</a>
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     </div>
-    <!-- Footer -->
-    <footer class="footer pt-0">
-        <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6">
-                <div class="copyright text-center  text-lg-left  text-muted">
-                    &copy; 2021 <a href="#" class="font-weight-bold ml-1">Phát triển bởi Nhóm 6 - Lập trình .NET</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
 </div>

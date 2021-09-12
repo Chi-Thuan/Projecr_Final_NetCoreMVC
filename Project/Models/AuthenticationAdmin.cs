@@ -24,16 +24,16 @@ namespace Project.Models
             else
             {
                 string tokenURL = filterContext.HttpContext.Request.QueryString["token"];
-                if (!String.IsNullOrEmpty(tokenURL))
-                {
-                    HandleFetchAPI.getInstance().token = tokenURL.ToString();
-                    filterContext.HttpContext.Response.Cookies["token"].Value = tokenURL.ToString();
-                    filterContext.Result = new RedirectResult("/admin");
-                }
-                else
-                {
-                    filterContext.Result = new RedirectResult("/admin/login");
-                }
+                  if (!String.IsNullOrEmpty(tokenURL))
+                 {
+                     HandleFetchAPI.getInstance().token = tokenURL.ToString();
+                     filterContext.HttpContext.Response.Cookies["token"].Value = tokenURL.ToString();
+                     filterContext.Result = new RedirectResult("/admin");
+                 }
+               else
+                 {
+                     filterContext.Result = new RedirectResult("/admin/login");
+                  }           
             }
         }
 
