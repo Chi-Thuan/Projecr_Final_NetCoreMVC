@@ -96,13 +96,14 @@
     <!-- popup Account -->
     <input type="checkbox" id="popup_login" hidden>
     <label for="popup_login" class="overlay_popup overlay_account"></label>
+
     <div class="wrap_login_register">
         <div class="login_register">
             <input type="radio" name="account" id="open_login" hidden checked>
             <input type="radio" name="account" id="open_register" hidden>
 
             <div class="form_account login">
-                <form action="Login" method="POST">
+                <form action="#" method="POST">
                     <div class="content_form_account">
                         <p class="title_account">
                             Đăng nhập
@@ -112,16 +113,16 @@
                                 <p class="title_row">
                                     Email
                                 </p>
-                                <input type="email" class="input_row" required>
+                                <input type="text" name="email" class="input_row">
                             </div>
                             <div class="row_account mb-3">
                                 <p class="title_row">
                                     Mật khẩu
                                 </p>
-                                <input type="password" class="input_row" required>
+                                <input type="password" name="password" class="input_row">
                             </div>
                             <div class="wrap_btn_submit">
-                                <input type="submit" class="btn_submit" value="Đăng nhập">
+                                <input type="submit" id="submitFormLogin" class="btn_submit" value="Đăng nhập">
                             </div>
                         </div>
                         <div class="wrap_login_social">
@@ -142,7 +143,7 @@
             </div>
 
             <div class="form_account register">
-                <form action="#" data-api="registerLocal" method="POST" enctype="multipart/form-data">
+                <form action="#" method="POST">
                     <div class="content_form_account">
                         <p class="title_account">
                             Đăng ký
@@ -152,29 +153,29 @@
                                 <p class="title_row">
                                     Họ tên
                                 </p>
-                                <input type="text" name="fullname" class="input_row" required>
+                                <input type="text" name="fullname" class="input_row">
                             </div>
                             <div class="row_account mb-2">
                                 <p class="title_row">
                                     Email
                                 </p>
-                                <input type="text" name="email" class="input_row" required>
+                                <input type="text" name="email" class="input_row">
                             </div>
                             <div class="row_account mb-2">
                                 <p class="title_row">
                                     Mật khẩu
                                 </p>
-                                <input type="password" name="password" class="input_row" required>
+                                <input type="password" name="password" class="input_row">
                             </div>
 
                             <div class="row_account mb-3">
                                 <p class="title_row">
                                     Nhâp lại mật khẩu
                                 </p>
-                                <input type="password" name="rePassword" class="input_row" required>
+                                <input type="password" name="repassword" class="input_row">
                             </div>
                             <div class="wrap_btn_submit">
-                                <input type="submit" class="btn_submit" value="Đăng ký">
+                                <input type="submit" id="submitFormRegister" class="btn_submit" value="Đăng ký">
                             </div>
                         </div>
                         <div class="footer_account">
@@ -564,6 +565,7 @@
     <!--::footer_part end::-->
     <!-- jquery plugins here-->
     <script src="~/Style/default/js/jquery-1.12.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.all.min.js" integrity="sha512-jQxNe7fqaqehR3t/JfoxC8y2dwkEIL/7a6JWbs6sQdSCI/6Kd0t2okI9nhuKeSUgM5JDTDgdUzLzSPovB2lOBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- popper js -->
     <script src="~/Style/default/js/popper.min.js"></script>
     <!-- bootstrap js -->
@@ -589,8 +591,7 @@
     <script src="~/Style/default/js/mail-script.js"></script>
     <!-- custom js -->
     <script src="~/Style/default/js/custom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.all.min.js" integrity="sha512-jQxNe7fqaqehR3t/JfoxC8y2dwkEIL/7a6JWbs6sQdSCI/6Kd0t2okI9nhuKeSUgM5JDTDgdUzLzSPovB2lOBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="~/Style/default/js/ajax.js"></script>
+    <script src="~/Style/default/js/main.js"></script>
 </body>
 
 </html>
