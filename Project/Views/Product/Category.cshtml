@@ -90,11 +90,13 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
                                 <img src="https://localhost:44342/Style/default/img/images/@item.slug@ViewData["jpg"]" alt="thumbnail" class="thumbnail" />
-                              <div class="single_product_text">
-                                    <h4>@item.name</h4>
-                                    <h3>@item.price$</h3>
-                                    <a href="https://localhost:44342/Cart/cart?status=true&id=@item.id" class="add_cart">Add to cart</a>
-                                </div>
+                                <div class="single_product_text">
+                                    <a href="/Product/Index/@item.id"> <h4>@item.name</h4></a>
+                                    @{string price = String.Format("{0:#,##0.0}", item.price);
+
+                                        <h3>@price VND</h3>}
+                                        <a href="https://localhost:44342/Cart/cart?status=true&id=@item.id" class="add_cart">Add to cart</a>
+                                    </div>
                             </div>
                         </div>
                     }

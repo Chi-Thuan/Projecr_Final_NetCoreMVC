@@ -26,11 +26,14 @@
                 <div class="s_product_text">
                     <h5>previous <span>|</span> next</h5>
                     <h3>@Model.name</h3>
-                    <h2>@Model.price $</h2>
+                    @{string price = String.Format("{0:#,##0.0}", Model.price);
+
+                    <h2>@price VND</h2>}
                     <ul class="list">
                         <li>
                             <a class="active" href="#">
-                                <span>Category</span> : Household
+
+                                <span>Category</span> :@ViewData["categoryName"]
                             </a>
                         </li>
                         <li>

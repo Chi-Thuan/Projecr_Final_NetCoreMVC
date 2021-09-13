@@ -54,24 +54,25 @@ function loadNumOfPageProduct() {
     })
 }
 
+
 function DeleteUser(id) {
     var url = "https://localhost:44308/delete-user/" + id;
     $.ajax({
         url: url,
         contentType: "application/json",
         dataType: "json",
-        type: "Post",
+        type: "get",
         success: function (result) {
             if (result === true) {
-                alert('xóa tài khoản thành công');
-                loadData();
+                alert('xóa thành công');
+                loadData()
                 return;
             }
             alert('tài khoản này không thể xóa');
             return;
         },
         error: function (msg) {
-            alert('tài khoan khong thể xóa ');
+            alert('Thao tác thất bại');
         }
     });
 }

@@ -128,7 +128,9 @@
 
 
                         <p> Name:  <a href="https://localhost:44342/Product/Index/@item.id" class="productDetail">  @item.name </a> </p>
-                        <p>Price:  @item.price </p>
+                        @{string price = String.Format("{0:#,##0.0}", item.price);
+
+                        <p>Price: @price</p>}
 
                         <a href="https://localhost:44342/Cart/cart?status=true&id=@item.id" class="add_cart">Add to cart</a>
                     </div>

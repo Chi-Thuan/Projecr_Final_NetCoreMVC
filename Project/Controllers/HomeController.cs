@@ -18,15 +18,15 @@ namespace Project.Controllers
         {
             ViewData["pageIndex"] = pageNumber();
             return View();
-            }
+        }
         public ActionResult Page()
         {
 
             var page = Request.QueryString["page"];
-          
+
 
             var request = new RestRequest(Method.GET);
-            var client = new RestClient("https://localhost:44308/pages/"+ page);
+            var client = new RestClient("https://localhost:44308/pages/" + page);
             client.Timeout = -1;
 
             var body = @"";
@@ -40,7 +40,7 @@ namespace Project.Controllers
 
             ViewData["pageIndex"] = pageNumber();
             ViewData["jpg"] = ".jpg";
-            ViewData["listProduct"]=listProducts;
+            ViewData["listProduct"] = listProducts;
 
             return View(listProducts);
         }
@@ -68,17 +68,17 @@ namespace Project.Controllers
             List<Product> list = JsonConvert.DeserializeObject<List<Product>>(rawResponse);
 
 
-            int pageIndex = 1;
+            // int pageIndex = 1;
 
-            // int pageIndex = list.Count() / 9;
-            //if (list.Count()%9 != 0)
-            // {
-            //     pageIndex = pageIndex + 1;
-            // }
+            int pageIndex = list.Count() / 9;
+            if (list.Count() % 9 != 0)
+            {
+                pageIndex = pageIndex + 1;
+            }
 
             return pageIndex;
         }
 
-
+       
     }
 }

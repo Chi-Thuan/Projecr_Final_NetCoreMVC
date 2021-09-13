@@ -27,7 +27,7 @@ class listJS {
 
        
                                <p> Name:  <a href="https://localhost:44342/Product/Index/`+ item.id + `" class="productDetail">` + item.name +`</a> </p>
-                                <p>Price: `+ item.price +`</p>
+                                <p>Price: `+ item.price +`VND</p>
                             
                              <a href="https://localhost:44342/Cart/cart?status=true&id=`+ item.id + `" class="add_cart">`+ "Add to cart" +`</a></div>
   

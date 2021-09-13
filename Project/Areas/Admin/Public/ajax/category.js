@@ -11,6 +11,25 @@ function TranToPageUpdateCategory(id) {
 
 function DeleteCategory(id) {
     console.log(id)
+    var url = "https://localhost:44308/delete-category/"+id;
+    $.ajax({
+        url: url,
+        contentType: "application/json",
+        dataType: "json",
+        type: "post",
+        success: function (result) {
+            if (result === true) {
+                alert('xóa thành công');
+                tranToPageCatogoryManage();
+                return;
+            }
+            alert('Danh mục này không thể xóa');
+            return;
+        },
+        error: function (msg) {
+            alert('Thao tác thất bại');
+        }
+    });
 }
 
 function addCategory() {
@@ -37,7 +56,6 @@ function tranToPageHistoryManager() {
 }
 
 function exportExcel() {
-    // onclick
     $.get("/admin/History/Export_Excel", function (data) {
     });
 }

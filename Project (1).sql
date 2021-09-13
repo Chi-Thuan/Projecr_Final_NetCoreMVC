@@ -200,5 +200,6 @@ INSERT INTO [Favorite] VALUES('badbe376-f279-4a5c-84b1-d35e864c2e82','a63130fe-9
 /* SELECT * FROM [Favorite]; */
 /* ======================================== */
 
+select * from [User] 
 
-
+delete [User] where id ='1fdcc462-6341-49fb-b37f-f613347d0a03'
