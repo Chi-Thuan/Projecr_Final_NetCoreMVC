@@ -54,6 +54,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.12.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.12.2\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
@@ -67,6 +70,7 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
     </Reference>
@@ -96,6 +100,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
       <Private>True</Private>
@@ -166,6 +171,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Public\ajax\category.js" />
     <Content Include="Areas\Admin\Public\ajax\Product.js" />
     <Content Include="Areas\Admin\Public\ajax\user.js" />
     <Content Include="Areas\Admin\Public\assets\css\argon.css" />
@@ -224,7 +230,7 @@
     <Content Include="Areas\Admin\Public\assets\js\components\vendor\nouislider.min.js" />
     <Content Include="Areas\Admin\Public\assets\js\components\vendor\scrollbar.js" />
     <Content Include="Areas\Admin\Public\assets\js\components\vendor\scrollbar.min.js" />
-    <Content Include="Areas\Admin\Public\assets\js\customJS.js" />
+    <Content Include="Areas\Admin\Public\ajax\customJS.js" />
     <Content Include="Areas\Admin\Public\assets\vendor\%40fortawesome\fontawesome-free\css\all.min.css" />
     <Content Include="Areas\Admin\Public\assets\vendor\%40fortawesome\fontawesome-free\css\brands.min.css" />
     <Content Include="Areas\Admin\Public\assets\vendor\%40fortawesome\fontawesome-free\css\fontawesome.min.css" />
@@ -3124,6 +3130,12 @@
     <Content Include="Areas\Admin\Public\ckeditor\vendor\promise.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Areas\Admin\Views\Product\CreateProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ListProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\UpdateProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutLoginAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\History\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -3537,6 +3549,8 @@
     <Content Include="Style\default\img\product\single-product\s-product-s-3.jpg" />
     <Content Include="Style\default\img\product\single-product\s-product-s-4.jpg" />
     <Content Include="Style\default\img\subscribe_area.png" />
+    <Content Include="Style\default\js\main.js" />
+    <Content Include="Style\default\js\ajax.js" />
     <Content Include="Style\default\js\aos.js" />
     <Content Include="Style\default\js\bootstrap.min.js" />
     <Content Include="Style\default\js\contact.js" />
@@ -3577,12 +3591,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CreateCategoryController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CreateProductController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CreateSubCategoryController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ListCategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HistoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
-    <Compile Include="Areas\Admin\Controllers\UpdateProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Model\HistoryBuy.cs" />
+    <Compile Include="Areas\Admin\Model\User.cs" />
+    <Compile Include="Areas\Admin\Model\ProductInfor.cs" />
+    <Compile Include="Areas\Admin\Model\Product.cs" />
+    <Compile Include="Areas\Admin\Model\Category.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -3602,7 +3619,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Shared\_layoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admin\Public\assets\fonts\nucleo\nucleo-icons.eot" />
     <Content Include="Areas\Admin\Public\assets\fonts\nucleo\nucleo-icons.ttf" />
@@ -4124,12 +4140,6 @@
     <Content Include="Areas\Admin\Public\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Areas\Admin\Public\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Areas\Admin\Public\ckeditor\skins\moono-lisa\readme.md" />
-    <Content Include="Areas\Admin\Views\CreateProduct\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ListCategory\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\CreateCategory\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\CreateSubCategory\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\UpdateProduct\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_LayoutLoginAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />

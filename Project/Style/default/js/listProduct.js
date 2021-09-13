@@ -9,7 +9,6 @@ class listJS {
     }
     //Load data
     loadData() {
-        debugger
         $.ajax({
             url: "https://localhost:44308/pages/1",
             method: "GET",
@@ -41,10 +40,8 @@ class listJS {
             }
 
         }).done(function (response) {
-            debugger;
 
         }).fail(function (response) {
-            debugger;
         })
 
 

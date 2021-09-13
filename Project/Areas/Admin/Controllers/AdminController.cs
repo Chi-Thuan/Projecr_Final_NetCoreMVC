@@ -21,8 +21,8 @@ namespace Project.Areas.Admin.Controllers
         [AuthenticationAdmin]
         public async Task<ActionResult> Index()
         {
-            HttpResponseMessage response = await HandleFetchAPI.getInstance().Call("/get-list-user", Response);
-            var data = response.Content.ReadAsStringAsync().Result;
+           // HttpResponseMessage response = await HandleFetchAPI.getInstance().Call("/get-list-user", Response);
+           // var data = response.Content.ReadAsStringAsync().Result;
             return View();
         }
     }

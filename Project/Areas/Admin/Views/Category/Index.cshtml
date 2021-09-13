@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header border-0">
+
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h3 class="mb-0">DANH MỤC <button type="button" class="ml-3 btn btn-outline-primary" onclick="addCategory()">Thêm</button> </h3>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="table-responsive">
+                    <!-- Projects table -->
+                    <table class="table align-items-center table-flush data-product">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" style="text-align: center;">STT</th>
+                                <th scope="col" style="text-align: center;">Tên Thể Loại</th>
+                                <th scope="col" style="text-align: center;">Ngày tạo</th>
+                                <th scope="col" style="text-align: center;">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int i = 0;}
+                            @foreach (var list in ViewBag.listCategory)
+                            {
+
+                                <tr>
+                                    <td style="text-align: center;"> @{i++;}@i</td>
+                                    <td style="text-align: center;"> @list.name </td>
+                                    <td style="text-align: center;"> @list.createAt </td>
+                                    <td style="text-align: center;">
+                                        <a href="#" class="btn btn-primary"><i class="ni ni-ruler-pencil" onclick="TranToPageUpdateCategory('@list.id')"></i></a>
+                                        <a href="#" class="btn btn-danger btn_remove_category" data-idcategory="#"><i class="ni ni-basket" onclick="DeleteCategory('@list.id')"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="paginationCategory">
+                        <ul id="paginationCategorytId" class="d-flex justify-content-end pagination pagination-lg mr-2">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

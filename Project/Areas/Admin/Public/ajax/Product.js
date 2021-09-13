@@ -115,7 +115,6 @@ function transToPageListProduct(page) {
     $.get("/admin/product/listproduct",
         { "page": page },
         function (data) {
-            console.log(data)
             $("#content-admin").children().remove();
             $("#content-admin").append(data);
             loadNumOfPageProduct();
