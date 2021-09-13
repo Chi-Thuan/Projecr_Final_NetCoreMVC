@@ -130,7 +130,7 @@ function addProductAPI() {
         product.id = '';
         product.name = document.getElementById("txt_name").value;
         product.slug = null;
-        product.thumbnail = '/Content/img/' + add_img.files[0].name;
+        product.thumbnail = 'Style/default/img/images/' + add_img.files[0].name;
         product.price = document.getElementById("input-price").value;
         product.category = jQuery("select#category").val();
         product.sub_category = null;
@@ -187,7 +187,7 @@ function updateProductAPI() {
     product.id = id;
     product.name = nameProduct;
     product.slug = null;
-    product.thumbnail = '/Content/img/' + thumnail;
+    product.thumbnail = '/Style/default/img/images/' + thumnail;
     product.price = price;
     product.category = category;
     product.sub_category = null;
