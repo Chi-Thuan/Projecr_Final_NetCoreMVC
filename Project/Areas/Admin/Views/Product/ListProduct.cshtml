@@ -31,7 +31,7 @@
                                         <img style="height: 50px; width: auto;" src="@product.thumbnail ">
                                     </th>
                                     <td style="text-align: center;">@product.name</td>
-                                    <td style="text-align: center;"> @product.price </td>
+                                    <td style="text-align: center;"> @String.Format("{0:#,##0.0}", @product.price)VNĐ </td>
                                     <td style="text-align: center;">
                                         <a href="#" class="btn btn-primary"><i class="ni ni-ruler-pencil" onclick="tranToPageUpdateProduct('@product.id')"></i></a>
                                         <a href="#" class="btn btn-danger btn_remove_category" data-idcategory="#"><i class="ni ni-basket" onclick="DeleteProduct('@product.id')"></i></a>

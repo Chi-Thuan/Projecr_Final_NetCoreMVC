@@ -28,6 +28,7 @@
                                 <th scope="col" style="text-align: center;">Địa Chỉ</th>
                                 <th scope="col" style="text-align: center;">Sản Phẩm</th>
                                 <th scope="col" style="text-align: center;">Số lượng</th>
+                                <th scope="col" style="text-align: center;">Gía</th>
                                 <th scope="col" style="text-align: center;">Ngày mua</th>
                                 <th scope="col" style="text-align: center;">Thành tiền</th>
                             </tr>
@@ -35,16 +36,17 @@
                         <tbody>
                             @foreach (var history in ViewBag.list)
                             {
-                                <tr>
-                                    <td style="text-align: center;">@history.stt</td>
-                                    <td style="text-align: center;">@history.fullName </td>
-                                    <td style="text-align: center;">@history.email</td>
-                                    <td style="text-align: center;">@history.address</td>
-                                    <td style="text-align: center;">@history.nameProduct</td>
-                                    <td style="text-align: center;">@history.quantity</td>
-                                    <td style="text-align: center;">@history.createAt</td>
-                                    <td style="text-align: center;">@history.total</td>
-                                </tr>
+                            <tr>
+                                <td style="text-align: center;">@history.stt</td>
+                                <td style="text-align: center;">@history.fullName </td>
+                                <td style="text-align: center;">@history.email</td>
+                                <td style="text-align: center;">@history.address</td>
+                                <td style="text-align: center;">@history.nameProduct</td>
+                                <td style="text-align: center;">@history.quantity</td>
+                                <td style="text-align: center;">@String.Format("{0:#,##0.0}", @history.price) VNĐ</td>
+                                <td style="text-align: center;">@history.createAt</td>
+                                <td style="text-align: center;">@String.Format("{0:#,##0.0}", @history.total) VNĐ</td>
+                            </tr>
                             }
                         </tbody>
                     </table>
