@@ -83,7 +83,7 @@ namespace Project.Areas.Admin.Controllers
                         }
 
                         // Get the complete folder path and store the file inside it.  
-                        fname = Path.Combine(Server.MapPath("/Content/img/"), fname);
+                        fname = Path.Combine(Server.MapPath("~/Style/default/img/images/"), fname);
                         file.SaveAs(fname);
                     }
                     // Returns message that successfully uploaded  
