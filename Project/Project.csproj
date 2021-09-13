@@ -4208,15 +4208,15 @@
     <Content Include="Style\default\webfonts\fa-solid-900.ttf" />
     <Content Include="Style\default\webfonts\fa-solid-900.woff" />
     <Content Include="Style\default\webfonts\fa-solid-900.woff2" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-    <Content Include="Views\Cart\cart.cshtml" />
-    <Content Include="Views\Cart\PaymentDetails.cshtml" />
-    <Content Include="Views\Product\Category.cshtml" />
-    <Content Include="Views\Home\Page.cshtml" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Views\Cart\cart.cshtml" />
+    <Content Include="Views\Cart\PaymentDetails.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Page.cshtml" />
+    <Content Include="Views\Product\Category.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -17,8 +17,6 @@ namespace Project.Controllers
         {
 
             var request = new RestRequest(Method.GET);
-
-
             var client = new RestClient("https://localhost:44308/listProduct/" + id);
 
             client.Timeout = -1;
@@ -30,41 +28,49 @@ namespace Project.Controllers
 
             Product p = JsonConvert.DeserializeObject<Product>(rawResponse);
 
+            string categoryName = "Unknown";
+            foreach (Category category in listCategory())
+            {
+                if (p.category.Equals(category.id))
+                {
+                    categoryName = category.name;
+                    ViewData["categoryName"] = categoryName;
+                }
+            }
+
             ViewData["imagePath"] = "https://localhost:44342/Style/default/img/images/" + p.slug + ".jpg";
-
             ViewData.Model = p;
-
-
-
-
+            ViewData.Model = p;
             return View(p);
         }
 
         public ActionResult Category()
         {
-          
+
             string categoryName = Request.QueryString["categoryName"];
 
             var request = new RestRequest(Method.GET);
 
             //name==null hien thi laptop loai dell
-            if (categoryName == null) {  categoryName= "6607bf03-c946-4009-948f-ce53188ccfb8"; }
+            if (categoryName == null) { categoryName = "6607bf03-c946-4009-948f-ce53188ccfb8"; }
+
+            var client = new RestClient("https://localhost:44308/findCategory/" + categoryName);
+            client.Timeout = -1;
+
+            var body = @"";
+            request.AddParameter("text/plain", body, ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            var rawResponse = response.Content;
+
+            List<Product> list = JsonConvert.DeserializeObject<List<Product>>(rawResponse);
             
-                var client = new RestClient("https://localhost:44308/findCategory/" + categoryName);
-                client.Timeout = -1;
 
-                var body = @"";
-                request.AddParameter("text/plain", body, ParameterType.RequestBody);
-                IRestResponse response = client.Execute(request);
-                var rawResponse = response.Content;
-
-                List<Product> list = JsonConvert.DeserializeObject<List<Product>>(rawResponse);
 
             ViewData["listCategoryName"] = listCategory();
             ViewData["list"] = list;
             ViewData["jpg"] = ".jpg";
             return View(list);
-        
+
         }
         public List<Category> listCategory()
         {
@@ -80,7 +86,7 @@ namespace Project.Controllers
 
             List<Category> categories = JsonConvert.DeserializeObject<List<Category>>(rawResponse);
 
-          
+
             return categories;
         }
 

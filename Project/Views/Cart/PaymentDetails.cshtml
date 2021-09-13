@@ -23,24 +23,27 @@
 
                     @foreach (ItemInCart item in (List<ItemInCart>)Session["cart"])
                     {
-                        <div class="row">
+                    <div class="row">
 
-                            <div class="col-md-5">
-                                <p class="name-prod">@item.Product.name</p>
-
-
-                            </div>
-                            <div class="col-md-3">
-                                <p class="price-prod">@item.Product.price</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p>@item.Quantity</p>
-                            </div>
-
-
+                        <div class="col-md-5">
+                            <p class="name-prod">@item.Product.name</p>
 
 
                         </div>
+                       
+                        <div class="col-md-3">
+                             @{string price = String.Format("{0:#,##0.0}", item.Product.price);
+
+                                    <p class="price-prod">@price </p>}
+                                </div>
+                        <div class="col-md-3">
+                            <p>@item.Quantity</p>
+                        </div>
+
+
+
+
+                    </div>
 
                         <br>
                         <hr>
@@ -67,9 +70,9 @@
 
                                 @{
 
-                                    var cost = cart.Sum(item => item.Product.price * item.Quantity) ;
+                                    string cost = String.Format("{0:#,##0.0}", cart.Sum(item => item.Product.price * item.Quantity));
                                 }
-                                @cost $
+                                @cost
 
                             </p>
 
