@@ -22,6 +22,7 @@ if (formLogin) {
                 password: txtPassword
             },
             success: function (respon) {
+                console.log(respon)
                 if (!respon.error) {
                     Swal.fire({
                         icon: 'success',

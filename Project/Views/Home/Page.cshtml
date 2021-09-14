@@ -109,12 +109,11 @@
 <!-- product_list start-->
 <section class="product_list section_padding">
 
-    <div class="container list_prod">
+ <div class="container list_prod" style="display: flex; flex-direction: column; align-items: flex-start;">
+   
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="section_tittle text-center">
-                    <h2>Shopping Now</h2>
-                </div>
+            <div class="section_tittle text-center">
+                <h2>MUA NHIỀU NHẤT</h2>
             </div>
         </div>
 
@@ -122,15 +121,17 @@
             @foreach (Product item in Model)
             {
 
-                <div class="col-lg-4 col-sm-4 col-md-4" id="detail_eachproduct">
-                    <div style="margin:50px 0px">
-                        <img src="/Style/default/img/images/@item.slug@ViewData["jpg"]" width="180" height="150">
+                <div class="col-lg-3 col-sm-3 col-md-3 product_item_new" id="detail_eachproduct" style="padding : 0 !important">
+                    <div class="py-5 px-4">
+                        <a href="https://localhost:44342/Product/Index/@item.id" class="productDetail">
+                            <img class="thumbnail" src="/Style/default/img/images/@item.slug@ViewData["jpg"]" style="width: 100%; height : 200px;object-fit:contain; border-radius : 10px">
+                        </a>
 
 
-                        <p> Name:  <a href="https://localhost:44342/Product/Index/@item.id" class="productDetail">  @item.name </a> </p>
+                        <p class="name"><a href="https://localhost:44342/Product/Index/@item.id" class="productDetail">  @item.name </a> </p>
                         @{string price = String.Format("{0:#,##0.0}", item.price);
 
-                        <p>Price: @price</p>}
+                        <p class="price">@price</p>}
 
                         <a href="https://localhost:44342/Cart/cart?status=true&id=@item.id" class="add_cart">Add to cart</a>
                     </div>

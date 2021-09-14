@@ -2,6 +2,7 @@
 using Project.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -12,6 +13,8 @@ namespace Project
     public class TokenManager
     {
         public static string secrect = "qweyuiopasdfghjklzxcvbnm";
+
+        public static UserToken userLogin = null;
 
         public static ClaimsPrincipal GetPrincipal(string token)
         {
@@ -33,15 +36,18 @@ namespace Project
                 ClaimsPrincipal principal = tokenHandler.ValidateToken(token, parameters, out securityToken);
                 return principal;
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 return null;
             }
         }
 
         public static UserToken ValidateToken(string token)
         {
+
             ClaimsPrincipal principal = GetPrincipal(token);
+
             if (principal == null) return null;
             ClaimsIdentity identity = null;
             try
@@ -53,6 +59,7 @@ namespace Project
                 return null;
             }
 
+            
             Claim id = identity.FindFirst("ID");
             Claim fullname = identity.FindFirst("FULLNAME");
             Claim email = identity.FindFirst("EMAIL");

@@ -19,7 +19,10 @@ namespace Project.Controllers
         public ActionResult cart()
 
         {
-           
+            if (TokenManager.userLogin != null)
+            {
+                ViewData["nameUser"] = TokenManager.userLogin.fullname;
+            }
             var action = Request.QueryString["action"];
             var id = Request.QueryString["id"];
             var cartStatus = Request.QueryString["status"];
@@ -126,11 +129,20 @@ namespace Project.Controllers
         }
         public ActionResult PaymentDetails()
         {
+            if (TokenManager.userLogin != null)
+            {
+                ViewData["nameUser"] = TokenManager.userLogin.fullname;
+            }
             List<ItemInCart> cart = (List<ItemInCart>)Session["cart"];
             return View();
         }
         public ActionResult payment()
         {
+            if (TokenManager.userLogin != null)
+            {
+                ViewData["nameUser"] = TokenManager.userLogin.fullname;
+            }
+
             List<ItemInCart> cart = (List<ItemInCart>)Session["cart"];
             for (int i = 0; i < cart.Count; i++)
             {

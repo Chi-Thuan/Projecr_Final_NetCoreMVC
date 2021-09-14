@@ -21,13 +21,15 @@ class listJS {
                     var trHTML = $(`
                    
               
-                            <div class="col-lg-4 col-sm-4 col-md-4" id="detail_eachproduct">
-                              <div style="margin:50px; 0px">
-                              <img src="/Style/default/img/images/`+item.slug+`.jpg" width="180" height="150">
+                            <div class="col-lg-3 col-sm-3 col-md-3 product_item_new" id="detail_eachproduct" style="padding : 0 !important">
+                              <div class="py-5 px-4">
+                              <a href="https://localhost:44342/Product/Index/`+ item.id + `">
+                                <img class="thumbnail" src="/Style/default/img/images/`+ item.slug +`.jpg" style="width: 100%; height : 200px;object-fit:contain; border-radius : 10px">
+                               <a/>
 
        
-                               <p> Name:  <a href="https://localhost:44342/Product/Index/`+ item.id + `" class="productDetail">` + item.name +`</a> </p>
-                                <p>Price: `+ item.price +`VND</p>
+                               <p class="name"><a href="https://localhost:44342/Product/Index/`+ item.id + `" class="productDetail">` + item.name +`</a> </p>
+                                <p class="price">`+ item.price +`VND</p>
                             
                              <a href="https://localhost:44342/Cart/cart?status=true&id=`+ item.id + `" class="add_cart">`+ "Add to cart" +`</a></div>
   

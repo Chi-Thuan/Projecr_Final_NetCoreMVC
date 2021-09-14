@@ -44,6 +44,7 @@ if (formLogin) {
                 },
 
                 success: function (respon) {
+                    console.log(respon)
                     if (!respon.error) {
                         console.log(respon)
                         Swal.fire({
@@ -117,6 +118,7 @@ if (formLogin) {
                 },
 
                 success: function (respon) {
+                    console.log(respon)
                     if (!respon.error) {
                         Swal.fire({
                             icon: 'success',
@@ -124,7 +126,7 @@ if (formLogin) {
                             confirmButtonText: 'Đồng ý'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = `/home?token=${respon.data.token}`
+                                window.location.href = `/home?token=${respon.data}`
                             }
                         })
                     } else {

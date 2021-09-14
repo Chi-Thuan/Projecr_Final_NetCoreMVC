@@ -3,6 +3,7 @@ using Project.Models;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,14 +15,21 @@ namespace Project.Controllers
 
         int amount = 0;
         // GET: Home
+        [AuthenticationAdmin("USER")]
         public ActionResult Index()
         {
             ViewData["pageIndex"] = pageNumber();
+            if (TokenManager.userLogin != null) { 
+             ViewData["nameUser"] = TokenManager.userLogin.fullname;
+            }
             return View();
         }
         public ActionResult Page()
         {
-
+            if (TokenManager.userLogin != null)
+            {
+                ViewData["nameUser"] = TokenManager.userLogin.fullname;
+            }
             var page = Request.QueryString["page"];
 
 
@@ -79,6 +87,15 @@ namespace Project.Controllers
             return pageIndex;
         }
 
-       
+
+        public ActionResult Logout()
+        {
+            Debug.WriteLine("scascascas");
+            if (Request.Cookies["token"] != null)
+            {
+                Response.Cookies["token"].Expires = DateTime.Now.AddDays(-1);
+            }
+            return Redirect("/");
+        }
     }
 }

@@ -15,7 +15,10 @@ namespace Project.Controllers
         // GET: Product
         public ActionResult Index(String id)
         {
-
+            if (TokenManager.userLogin != null)
+            {
+                ViewData["nameUser"] = TokenManager.userLogin.fullname;
+            }
             var request = new RestRequest(Method.GET);
             var client = new RestClient("https://localhost:44308/listProduct/" + id);
 
@@ -46,7 +49,10 @@ namespace Project.Controllers
 
         public ActionResult Category()
         {
-
+            if (TokenManager.userLogin != null)
+            {
+                ViewData["nameUser"] = TokenManager.userLogin.fullname;
+            }
             string categoryName = Request.QueryString["categoryName"];
 
             var request = new RestRequest(Method.GET);

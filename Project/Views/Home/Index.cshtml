@@ -21,18 +21,20 @@
                                 <div class="banner_text">
                                     <div class="banner_text_iner">
                                         <h1>
-                                            Dell
+                                            Laptop Gaming Asus ROG
                                         </h1>
-                                        <p>
-                                            Incididunt ut labore et dolore magna aliqua quis ipsum
-                                            suspendisse ultrices gravida. Risus commodo viverra
+                                        <p style="font-weight :500">
+                                            CPU: AMD Ryzen 7-5800H (3.20GHz upto 4.40GHz, 16MB) <br />
+                                            RAM: 16GB(8GBx2) DDR4 3200MHz (2 khe)<br />
+                                            Ổ cứng: 512GB M.2 NVMe™ PCIe® 3.0 SSD<br />
+                                            VGA: NVIDIA® GeForce RTX™ 3060 6GB GDDR6
                                         </p>
 
                                     </div>
                                 </div>
                             </div>
-                            <div class="banner_img d-none d-lg-block">
-                                <img src="~/Style/default//img/banner_img.png" alt="" width="2000" height="300">
+                            <div class="banner_img d-none d-lg-block" style="margin-top: -110px">
+                                <img src="~/Style/default//img/banner_new_1.png" alt="" width="500" height="500">
                             </div>
                         </div>
                     </div><div class="single_banner_slider">
@@ -41,18 +43,25 @@
                                 <div class="banner_text">
                                     <div class="banner_text_iner">
                                         <h1>
-                                            Dell
+                                            Laptop Acer Nitro 5
                                         </h1>
-                                        <p>
-                                            Incididunt ut labore et dolore magna aliqua quis ipsum
-                                            suspendisse ultrices gravida. Risus commodo viverra
+                                        <p style="font-weight: 500">
+                                            15.6", 1920 x 1080 Pixel, IPS, 144 Hz, Acer ComfyView Anti-glare LED-backlit <br />
+
+                                            Intel Core i5-10300H<br />
+
+                                            8 GB, DDR4, 2933 MHz<br />
+
+                                            SSD 512 GB<br />
+
+                                            GeForce GTX 1650 Ti 4GB
                                         </p>
 
                                     </div>
                                 </div>
                             </div>
                             <div class="banner_img d-none d-lg-block">
-                                <img src="~/Style/default//img/banner_img.png" alt="" width="2000" height="300">
+                                <img src="~/Style/default//img/banner_new_2.jpg" style="border-radius: 10px" width="300" height="300">
                             </div>
                         </div>
                     </div>
@@ -62,42 +71,24 @@
                                 <div class="banner_text">
                                     <div class="banner_text_iner">
                                         <h1>
-                                            Dell
+                                            ASUS ROG Strix SCAR 15
                                         </h1>
-                                        <p>
-                                            Incididunt ut labore et dolore magna aliqua quis ipsum
-                                            suspendisse ultrices gravida. Risus commodo viverra
+                                        <p style="font-weight :500">
+                                            CPU: AMD Ryzen 7-5800H (3.20GHz upto 4.40GHz, 16MB) <br />
+                                            RAM: 16GB(8GBx2) DDR4 3200MHz (2 khe)<br />
+                                            Ổ cứng: 512GB M.2 NVMe™ PCIe® 3.0 SSD<br />
+                                            VGA: NVIDIA® GeForce RTX™ 3060 6GB GDDR6
                                         </p>
 
                                     </div>
                                 </div>
                             </div>
                             <div class="banner_img d-none d-lg-block">
-                                <img src="~/Style/default//img/banner_img.png" alt="" width="2000" height="300">
+                                <img src="~/Style/default//img/banner_new_3.jpg" style="border-radius: 10px" width="300" height="300">
                             </div>
                         </div>
                     </div>
-                    <div class="single_banner_slider">
-                        <div class="row">
-                            <div class="col-lg-5 col-md-8">
-                                <div class="banner_text">
-                                    <div class="banner_text_iner">
-                                        <h1>Dell</h1>
-                                        <p>
-                                            Incididunt ut labore et dolore magna aliqua quis ipsum
-                                            suspendisse ultrices gravida. Risus commodo viverra
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="banner_img d-none d-lg-block">
-                                <img src="~/Style/default//img/banner_img.png" alt="" width="2000" height="300">
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
-                <div class="slider-counter"></div>
             </div>
         </div>
     </div>
@@ -108,12 +99,11 @@
 <!-- product_list start-->
 <section class="product_list section_padding">
 
-    <div class="container list_prod">
+    <div class="container list_prod" style="display: flex; flex-direction: column; align-items: flex-start;">
+   
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="section_tittle text-center">
-                    <h2>Shopping Now</h2>
-                </div>
+            <div class="section_tittle text-center">
+                <h2>MUA NHIỀU NHẤT</h2>
             </div>
         </div>
 
@@ -122,14 +112,13 @@
             <h1></h1>
         </div>
 
-    <div class="row align-items-center latest_product_inner" style="margin-left: 40%">
-     
-        @{
-            var index = ViewData["pageIndex"];
-            int pageIndex = (int)index;
-            for (int i = 1; i <= pageIndex; i++)
-            {
-    
+        <div class="row align-items-center latest_product_inner" style="margin-left: 40%">
+
+            @{ var index = ViewData["pageIndex"];
+                            int pageIndex = (int)index;
+                            for (int i = 1; i <= pageIndex; i++)
+                            {
+
                 <div class="pageination">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
@@ -138,12 +127,8 @@
 
                         </ul>
                     </nav>
-                </div>
-   
-            }
-           
-        }
-</div>
+                </div> } }
+        </div>
     </div>
 </section>
 

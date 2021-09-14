@@ -11,6 +11,10 @@ namespace Project.Controllers
         // GET: Contact
         public ActionResult Index()
         {
+            if (TokenManager.userLogin != null)
+            {
+                ViewData["nameUser"] = TokenManager.userLogin.fullname;
+            }
             return View();
         }
     }

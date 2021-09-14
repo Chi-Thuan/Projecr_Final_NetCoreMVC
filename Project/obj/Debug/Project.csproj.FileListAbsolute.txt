@@ -658,3 +658,5 @@ D:\lap trinh Net\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.csproj.CoreC
 D:\lap trinh Net\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.csproj.CopyComplete
 D:\lap trinh Net\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.dll
 D:\lap trinh Net\Projecr_Final_NetCoreMVC\Project\obj\Debug\Project.pdb
+G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\bin\EPPlus.dll
+G:\ADMIN\NET MVC\FE\Projecr_Final_NetCoreMVC\Project\bin\EPPlus.xml
