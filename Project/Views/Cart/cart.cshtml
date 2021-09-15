@@ -22,32 +22,32 @@
 
                     <!--
 
-          <div class="row border border-success border-right-0 border-top-0 border-left-0  ">
+       <div class="row border border-success border-right-0 border-top-0 border-left-0  ">
 
-           <div class="col-md-2">
-               <p>
-                   <b></b>
-               </p>
-           </div>
-           <div class="col-md-3">
-               <p>
-                   <b>	Name</b>
-               </p>
-           </div>
-           <div class="col-md-2">
-               <p>
-                   <b>	Price</b>
-               </p>
-           </div>
+        <div class="col-md-2">
+            <p>
+                <b></b>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p>
+                <b>	Name</b>
+            </p>
+        </div>
+        <div class="col-md-2">
+            <p>
+                <b>	Price</b>
+            </p>
+        </div>
 
-           <div class=col-md-2>
-               <p>
-                   <b>Quantity</b>
-               </p>
-           </div>
-           <br>
-       </div>
-        -->
+        <div class=col-md-2>
+            <p>
+                <b>Quantity</b>
+            </p>
+        </div>
+        <br>
+    </div>
+     -->
                     <br>
 
                     @foreach (ItemInCart item in (List<ItemInCart>)Session["cart"])
@@ -70,7 +70,7 @@
                         <div class="action_remove">
                             <a class="btn btn-default" href="/Cart/cart?id=@item.Product.id&action=Remove&status=true"><i class="fas fa-trash"></i></a>
                         </div>
-                  
+
                         <p class="action_price">
                             @String.Format("{0:#,##0.0}", item.Product.price) VND
                         </p>
@@ -128,46 +128,96 @@
     -->
 
 
-                </div>
+                </div>}
 
-
-                                    }
-
-                <div class="row d-flex justify-content-between px-3">
-                    <p style=" font-size: 24px; font-weight: 500">
-                        Tổng tiền
-                    </p>
-                    <p style="font-size: 24px; font-weight: 500; color: #f2405d">
-                        @{ List<ItemInCart> cart = (List<ItemInCart>)Session["cart"];
-                            var total = cart.Sum(item => item.Quantity); }
-                        @String.Format("{0:#,##0.0}", cart.Sum(item => item.Product.price * item.Quantity)) VND
-                    </p>
-                </div>
-                <div class="row d-flex justify-content-end px-3">    
-                    <div>
-                        @{ var nameUser = ViewData["nameUser"]; }
-                        @if (nameUser != null)
-                        {
-                    <a class=" btn btn-success popup_checkout" href="/Cart/PaymentDetails">Thanh toán</a> }
-                                else
-                                {
-                    <span class=" btn btn-success popup_checkout" onClick="hihi()" style="cursor : pointer">Thanh toán</span>}
-
-                        <script src="~/Style/default/js/jquery-1.12.1.min.js"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.all.min.js" integrity="sha512-jQxNe7fqaqehR3t/JfoxC8y2dwkEIL/7a6JWbs6sQdSCI/6Kd0t2okI9nhuKeSUgM5JDTDgdUzLzSPovB2lOBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-                        <script>
-                            function hihi() {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Bạn cần đăng nhập để thực hiện chức năng này',
-                                    confirmButtonText: 'Đồng ý'
-                                })
-                            }
-                           
-                        </script>
-
+                    <div class="row d-flex justify-content-between px-3">
+                        <p style=" font-size: 24px; font-weight: 500">
+                            Tổng tiền
+                        </p>
+                        <p style="font-size: 24px; font-weight: 500; color: #f2405d">
+                            @{ List<ItemInCart> cart = (List<ItemInCart>)Session["cart"];
+                                var total = cart.Sum(item => item.Quantity); }
+                            @String.Format("{0:#,##0.0}", cart.Sum(item => item.Product.price * item.Quantity)) VND
+                        </p>
                     </div>
-                </div>
+
+                    <div class="row px-2" style="height : 0; overflow : hidden" id="form_location">
+                        <div class="form-group col-12">
+                            <label for="exampleFormControlInput1">
+                                Địa chỉ nhận hàng
+                            </label>
+                            <input type="text" class="form-control" id="diaChiNhanHang" placeholder="Nhập địa chỉ">
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-end px-3">
+                        <div class="d-flex">
+                            @{ var nameUser = ViewData["nameUser"]; }
+                            @if (nameUser != null)
+                            {
+                            <p class="idUser" style="opacity : 0"> @ViewData["idUser"] </p>
+                                <a href="#" class=" btn btn-success popup_checkout" data-islocation="false" id="handle_thanhToan"> Thanh toán</a> 
+
+                                <!--   <a class=" btn btn-success popup_checkout" href="/Cart/PaymentDetails">Thanh toán</a>  --> 
+                                 }
+
+                                                    else
+                                                    {
+                                        <span class=" btn btn-success popup_checkout" onClick="hihi()" style="cursor : pointer">Thanh toán</span>}
+
+                            <script src="~/Style/default/js/jquery-1.12.1.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.6/sweetalert2.all.min.js" integrity="sha512-jQxNe7fqaqehR3t/JfoxC8y2dwkEIL/7a6JWbs6sQdSCI/6Kd0t2okI9nhuKeSUgM5JDTDgdUzLzSPovB2lOBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                            <script>
+                                function hihi() {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Bạn cần đăng nhập để thực hiện chức năng này',
+                                        confirmButtonText: 'Đồng ý'
+                                    })
+                                }
+                                let buttonThanhToan = document.querySelector('#handle_thanhToan');
+                         
+                                function handleCLick(e) {
+                                    e.preventDefault()
+                                    let buttonThanhToan = document.querySelector('#handle_thanhToan');
+                                    let isHaveLocation = buttonThanhToan.dataset.islocation
+                                    console.log('isHaveLocation  ', isHaveLocation)
+                                    let formLocation = document.querySelector('#form_location')
+                                    if (isHaveLocation && isHaveLocation == "true") {
+                                        let inputDiaChi = document.querySelector('#diaChiNhanHang')
+                                        let valueDiaChi = inputDiaChi.value
+
+                                        if (valueDiaChi.length == 0) {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Vui lòng nhập địa chỉ nhận hàng',
+                                                confirmButtonText: 'Đồng ý'
+                                            })
+                                        } else {
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Thanh toán thành công',
+                                                confirmButtonText: 'Đồng ý'
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    window.location.href = `/Cart/payment?address=${valueDiaChi}`
+                                                }
+                                            })
+                                            
+                                        }
+                                    } else {
+                                        formLocation.style.height = 'auto'
+                                        formLocation.style.transition = 'all 0.4s'
+                                        buttonThanhToan.dataset.islocation = 'true'
+                                    }
+                                }
+
+                                buttonThanhToan.addEventListener('click', handleCLick)
+
+                            </script>
+
+                        </div>
+                    </div>
 
                     <div class="row "
                          style="padding-top: 40px; display: none">
@@ -175,7 +225,7 @@
                             <p class="amount">
                                 <b>Total:</b>
 
-                              
+
                                 @total
                             </p>
                         </div>

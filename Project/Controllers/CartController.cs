@@ -3,6 +3,7 @@ using Project.Models;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,6 +23,7 @@ namespace Project.Controllers
             if (TokenManager.userLogin != null)
             {
                 ViewData["nameUser"] = TokenManager.userLogin.fullname;
+                ViewData["idUser"] = TokenManager.userLogin.id;
             }
             var action = Request.QueryString["action"];
             var id = Request.QueryString["id"];
@@ -136,20 +138,26 @@ namespace Project.Controllers
             List<ItemInCart> cart = (List<ItemInCart>)Session["cart"];
             return View();
         }
+
+
+        //[Route("payment/:address")]
         public ActionResult payment()
         {
             if (TokenManager.userLogin != null)
             {
                 ViewData["nameUser"] = TokenManager.userLogin.fullname;
             }
-
+            String address = Request.QueryString["address"];
             List<ItemInCart> cart = (List<ItemInCart>)Session["cart"];
+            String idUser = TokenManager.userLogin.id;
             for (int i = 0; i < cart.Count; i++)
             {
                 var request = new RestRequest(Method.GET);
 
+                
+               // var client = new RestClient("https://localhost:44308/payment/" + cart[i].Product.id + "/"+cart[i].Quantity);
 
-                var client = new RestClient("https://localhost:44308/payment/" + cart[i].Product.id + "/"+cart[i].Quantity);
+                var client = new RestClient("https://localhost:44308/history-buy/" + idUser + "/"+ cart[i].Product.id + "/" + cart[i].Quantity + "/" + address);
 
                 client.Timeout = -1;
 
@@ -158,12 +166,10 @@ namespace Project.Controllers
                 IRestResponse response = client.Execute(request);
                 var rawResponse = response.Content;
 
-                   
-
             }
            
             cart.Clear();
-                return Redirect("/Cart/cart");
+                return Redirect("/Home");
         }
       
     }
